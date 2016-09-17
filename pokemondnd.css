@@ -1,0 +1,16 @@
+.sheet-rolltemplate-pokemon table {
+    width: 189px;
+    padding: 2px;
+	border: 1px solid;
+    background-color: #ffffff;
+}
+
+.sheet-rolltemplate-pokemon .sheet-arrow-right {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+	border-left: 180px solid rgb(126, 45, 64);
+}
+
+.sheet-rolltemplate-pokemon td {
+    padding-left: 5px;
+}

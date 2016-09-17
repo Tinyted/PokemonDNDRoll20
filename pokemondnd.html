@@ -25,7 +25,7 @@
 	  <option value="2d8">2D8</option>
 	  <option value="1d20">D20</option>
     </select>
-	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_1}}} {{base=[[@{pokemon_skill_1_basedmg}]]}} {{dice=[[@{pokemon_skill_1_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_1_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_1_special_usage})) + @{pokemon_skill_1_basedmg}]]}}"></button>
+	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_1}}} {{base=[[@{pokemon_skill_1_basedmg}]]}} {{dicename=@{pokemon_skill_1_rolltype}}} {{dice=[[@{pokemon_skill_1_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_1_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_1_special_usage})) + @{pokemon_skill_1_basedmg}]]}}"></button>
 </p>
 
 <p>
@@ -50,7 +50,7 @@
 	  <option value="2d8">2D8</option>
 	  <option value="1d20">D20</option>
     </select>
-	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_2}}} {{base=[[@{pokemon_skill_2_basedmg}]]}} {{dice=[[@{pokemon_skill_2_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_2_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_2_special_usage})) + @{pokemon_skill_2_basedmg}]]}}"></button>
+	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_2}}} {{base=[[@{pokemon_skill_2_basedmg}]]}} {{dicename=@{pokemon_skill_2_rolltype}}} {{dice=[[@{pokemon_skill_2_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_2_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_2_special_usage})) + @{pokemon_skill_2_basedmg}]]}}"></button>
 </p>
 
 <p>
@@ -75,7 +75,7 @@
 	  <option value="2d8">2D8</option>
 	  <option value="1d20">D20</option>
     </select>
-	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_3}}} {{base=[[@{pokemon_skill_3_basedmg}]]}} {{dice=[[@{pokemon_skill_3_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_3_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_3_special_usage})) + @{pokemon_skill_3_basedmg}]]}}"></button>
+	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_3}}} {{base=[[@{pokemon_skill_3_basedmg}]]}} {{dicename=@{pokemon_skill_3_rolltype}}} {{dice=[[@{pokemon_skill_3_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_3_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_3_special_usage})) + @{pokemon_skill_3_basedmg}]]}}"></button>
 </p>
 
 <p>
@@ -100,7 +100,7 @@
 	  <option value="2d8">2D8</option>
 	  <option value="1d20">D20</option>
     </select>
-	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_4}}} {{base=[[@{pokemon_skill_4_basedmg}]]}} {{dice=[[@{pokemon_skill_4_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_4_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_4_special_usage})) + @{pokemon_skill_4_basedmg}]]}}"></button>
+	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_4}}} {{base=[[@{pokemon_skill_4_basedmg}]]}} {{dicename=@{pokemon_skill_4_rolltype}}} {{dice=[[@{pokemon_skill_4_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_4_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_4_special_usage})) + @{pokemon_skill_4_basedmg}]]}}"></button>
 </p>
 
 <h2>Inventory</h2>
@@ -215,11 +215,12 @@
 <rolltemplate class="sheet-rolltemplate-pokemon">
     <table>
         <tr><th>"{{name}}" uses "{{skill}}"</th></tr> 
+		<tr class="arrow-container"><td><div class="arrow-right"></div></td></tr>
 		{{#base}}
 		<tr class="rowcolor"><td><span class="tcat">Base: </span>{{base}}</td></tr>
 		{{/base}}
 		{{#dice}}
-		<tr class="rowcolor"><td><span class="tcat">Dice Roll: </span>{{dice}}</td></tr>
+		<tr class="rowcolor"><td><span class="tcat">Dice Roll for {{dicename}}: </span>{{dice}}</td></tr>
 		{{/dice}}
 		{{#normal}}
 		<tr class="rowcolor"><td><span class="tcat">Normal: </span>{{normal}}</td></tr>
