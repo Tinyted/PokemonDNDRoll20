@@ -12,68 +12,6 @@
     <input type="number" name="attr_pokemon_exp" value="0">
 </p>
 
-<!-- TODO: Implement auto calculation for stats based on growth, consider using Sheet worker scripts https://wiki.roll20.net/Sheet_Worker_Scripts -->
-<!-- TODO: Change growth values to number based, to use in auto calculation? -->
-<!-- TODO: Allow additional input for player to put in random(from dice) points into attributes. Use button roll for that -->
-<!-- TODO: Add area for items, (do they affect stats?) -->
-<h2>Stats</h2>
-<p>HP
-    <input type="number" name="attr_pokemon_hp" value="0">
-    <select name="attr_pokemon_hp_growth">
-      <option value="*">*</option>
-      <option value="**">**</option>
-      <option value="***">***</option>
-    </select>
-</p>
-<p>Atk
-    <input type="number" name="attr_pokemon_atk" value="0">
-    <select name="attr_pokemon_atk_growth">
-      <option value="*">*</option>
-      <option value="**">**</option>
-      <option value="***">***</option>
-    </select>
-</p>
-<p>Spec Atk
-    <input type="number" name="attr_pokemon_satk" value="0">
-    <select name="attr_pokemon_satk_growth">
-      <option value="*">*</option>
-      <option value="**">**</option>
-      <option value="***">***</option>
-    </select>
-</p>
-<p>Def
-    <input type="number" name="attr_pokemon_def" value="0">
-    <select name="attr_pokemon_def_growth">
-      <option value="*">*</option>
-      <option value="**">**</option>
-      <option value="***">***</option>
-    </select>
-</p>
-<p>Spec Def
-    <input type="number" name="attr_pokemon_sdef" value="0">
-    <select name="attr_pokemon_sdef_growth">
-      <option value="*">*</option>
-      <option value="**">**</option>
-      <option value="***">***</option>
-    </select>
-</p>
-<p>Speed
-    <input type="number" name="attr_pokemon_speed" value="0">
-    <select name="attr_pokemon_speed_growth">
-      <option value="*">*</option>
-      <option value="**">**</option>
-      <option value="***">***</option>
-    </select>
-</p>
-<p>Luck
-    <input type="number" name="attr_pokemon_luck" value="0">
-    <select name="attr_pokemon_luck_growth">
-      <option value="*">*</option>
-      <option value="**">**</option>
-      <option value="***">***</option>
-    </select>
-</p>
-
 <h2>Skills</h2>
 
 <!-- TODO: Use roll templates -->
@@ -173,6 +111,68 @@
 	  <option value="1d20">D20</option>
     </select>
     <button type='roll' value='/roll @{pokemon_skill_4_rolltype} + @{pokemon_atk} + @{pokemon_skill_4_basedmg}' name='roll_Skill4'></button>
+</p>
+
+<!-- TODO: Implement auto calculation for stats based on growth, consider using Sheet worker scripts https://wiki.roll20.net/Sheet_Worker_Scripts -->
+<!-- TODO: Change growth values to number based, to use in auto calculation? -->
+<!-- TODO: Allow additional input for player to put in random(from dice) points into attributes. Use button roll for that -->
+<!-- TODO: Add area for items, (do they affect stats?) -->
+<h2>Stats</h2>
+<p>HP
+    <input type="number" name="attr_pokemon_hp" value="0">
+    <select name="attr_pokemon_hp_growth">
+      <option value="*">*</option>
+      <option value="**">**</option>
+      <option value="***">***</option>
+    </select>
+</p>
+<p>Atk
+    <input type="number" name="attr_pokemon_atk" value="0">
+    <select name="attr_pokemon_atk_growth">
+      <option value="*">*</option>
+      <option value="**">**</option>
+      <option value="***">***</option>
+    </select>
+</p>
+<p>Spec Atk
+    <input type="number" name="attr_pokemon_satk" value="0">
+    <select name="attr_pokemon_satk_growth">
+      <option value="*">*</option>
+      <option value="**">**</option>
+      <option value="***">***</option>
+    </select>
+</p>
+<p>Def
+    <input type="number" name="attr_pokemon_def" value="0">
+    <select name="attr_pokemon_def_growth">
+      <option value="*">*</option>
+      <option value="**">**</option>
+      <option value="***">***</option>
+    </select>
+</p>
+<p>Spec Def
+    <input type="number" name="attr_pokemon_sdef" value="0">
+    <select name="attr_pokemon_sdef_growth">
+      <option value="*">*</option>
+      <option value="**">**</option>
+      <option value="***">***</option>
+    </select>
+</p>
+<p>Speed
+    <input type="number" name="attr_pokemon_speed" value="0">
+    <select name="attr_pokemon_speed_growth">
+      <option value="*">*</option>
+      <option value="**">**</option>
+      <option value="***">***</option>
+    </select>
+</p>
+<p>Luck
+    <input type="number" name="attr_pokemon_luck" value="0">
+    <select name="attr_pokemon_luck_growth">
+      <option value="*">*</option>
+      <option value="**">**</option>
+      <option value="***">***</option>
+    </select>
 </p>
 
 <h2>Other<h2>
