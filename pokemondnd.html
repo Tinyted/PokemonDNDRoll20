@@ -12,7 +12,7 @@
     <input type="number" name="attr_pokemon_skill_1_maxpp" value="0">
     Base
     <input type="number" name="attr_pokemon_skill_1_basedmg" value="0">
-	<input type='checkbox' name='attr_pokemon_skill_special_usage' value='1' checked='true' />
+	<input type='checkbox' name='attr_pokemon_skill_1_special_usage' value='1' checked='true' />
     Roll
     <select name="attr_pokemon_skill_1_rolltype">
       <option value="1d4">D4</option>
@@ -25,7 +25,7 @@
 	  <option value="2d8">2D8</option>
 	  <option value="1d20">D20</option>
     </select>
-    <button type='roll' value='/roll @{pokemon_skill_1_rolltype} + @{pokemon_atk} + @{pokemon_skill_satk}*@{pokemon_skill_special_usage} + ceil(@{pokemon_skill_1_basedmg}/10)' name='roll_Skill1'></button>
+	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_1}}} {{base=[[@{pokemon_skill_1_basedmg}]]}} {{dice=[[@{pokemon_skill_1_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_1_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_1_special_usage})) + @{pokemon_skill_1_basedmg}]]}}"></button>
 </p>
 
 <p>
@@ -37,6 +37,7 @@
     <input type="number" name="attr_pokemon_skill_2_maxpp" value="0">
     BaseDMG
     <input type="number" name="attr_pokemon_skill_2_basedmg" value="0">
+	<input type='checkbox' name='attr_pokemon_skill_2_special_usage' value='1' checked='true' />
     Roll
     <select name="attr_pokemon_skill_2_rolltype">
       <option value="1d4">D4</option>
@@ -49,7 +50,7 @@
 	  <option value="2d8">2D8</option>
 	  <option value="1d20">D20</option>
     </select>
-    <button type='roll' value='/roll @{pokemon_skill_2_rolltype} + @{pokemon_atk} + @{pokemon_skill_2_basedmg}' name='roll_Skill2'></button>
+	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_2}}} {{base=[[@{pokemon_skill_2_basedmg}]]}} {{dice=[[@{pokemon_skill_2_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_2_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_2_special_usage})) + @{pokemon_skill_2_basedmg}]]}}"></button>
 </p>
 
 <p>
@@ -61,6 +62,7 @@
     <input type="number" name="attr_pokemon_skill_3_maxpp" value="0">
     BaseDMG
     <input type="number" name="attr_pokemon_skill_3_basedmg" value="0">
+	<input type='checkbox' name='attr_pokemon_skill_3_special_usage' value='1' checked='true' />
     Roll
     <select name="attr_pokemon_skill_3_rolltype">
       <option value="1d4">D4</option>
@@ -73,7 +75,7 @@
 	  <option value="2d8">2D8</option>
 	  <option value="1d20">D20</option>
     </select>
-    <button type='roll' value='/roll @{pokemon_skill_3_rolltype} + @{pokemon_atk} + @{pokemon_skill_3_basedmg}' name='roll_Skill3'></button>
+	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_3}}} {{base=[[@{pokemon_skill_3_basedmg}]]}} {{dice=[[@{pokemon_skill_3_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_3_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_3_special_usage})) + @{pokemon_skill_3_basedmg}]]}}"></button>
 </p>
 
 <p>
@@ -85,6 +87,7 @@
     <input type="number" name="attr_pokemon_skill_4_maxpp" value="0">
     BaseDMG
     <input type="number" name="attr_pokemon_skill_4_basedmg" value="0">
+	<input type='checkbox' name='attr_pokemon_skill_4_special_usage' value='1' checked='true' />
     Roll
     <select name="attr_pokemon_skill_4_rolltype">
       <option value="1d4">D4</option>
@@ -97,7 +100,7 @@
 	  <option value="2d8">2D8</option>
 	  <option value="1d20">D20</option>
     </select>
-    <button type='roll' value='/roll @{pokemon_skill_4_rolltype} + @{pokemon_atk} + @{pokemon_skill_4_basedmg}' name='roll_Skill4'></button>
+	<button type="roll" value="&{template:pokemon} {{name=@{pokemon_name}}} {{skill=@{pokemon_skill_4}}} {{base=[[@{pokemon_skill_4_basedmg}]]}} {{dice=[[@{pokemon_skill_4_rolltype}]]}} {{normal=[[ceil(@{pokemon_atk}/15)]]}} {{special=[[ceil(@{pokemon_satk}/15)]]}} {{total=[[ceil(@{pokemon_atk}/15*(@{pokemon_skill_4_special_usage}-1)*-1 + (@{pokemon_satk}/15*@{pokemon_skill_4_special_usage})) + @{pokemon_skill_4_basedmg}]]}}"></button>
 </p>
 
 <h2>Inventory</h2>
@@ -206,3 +209,26 @@
 <p>
 	Personality: <input type="text" name="attr_pokemon_personality" value="Insert Personality">
 </p>
+
+
+
+<rolltemplate class="sheet-rolltemplate-pokemon">
+    <table>
+        <tr><th>"{{name}}" uses "{{skill}}"</th></tr> 
+		{{#base}}
+		<tr class="rowcolor"><td><span class="tcat">Base: </span>{{base}}</td></tr>
+		{{/base}}
+		{{#dice}}
+		<tr class="rowcolor"><td><span class="tcat">Dice Roll: </span>{{dice}}</td></tr>
+		{{/dice}}
+		{{#normal}}
+		<tr class="rowcolor"><td><span class="tcat">Normal: </span>{{normal}}</td></tr>
+		{{/normal}}
+		{{#special}}
+		<tr class="rowcolor"><td><span class="tcat">Special: </span>{{special}}</td></tr>
+		{{/special}}
+		{{#total}}
+		<tr class="rowcolor"><td><span class="tcat">Total Damage = </span>{{dice}} + {{total}}</td></tr>
+		{{/total}}
+	</table>
+</rolltemplate>
