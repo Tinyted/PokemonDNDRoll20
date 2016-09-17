@@ -85,8 +85,9 @@
     <input type="number" name="attr_pokemon_skill_1_currentpp" value="0">
     MaxPP
     <input type="number" name="attr_pokemon_skill_1_maxpp" value="0">
-    BaseDMG
+    Base
     <input type="number" name="attr_pokemon_skill_1_basedmg" value="0">
+	<input type='radio' value='0' name='attr_pokemon_skill_1_special' /><input type='radio' value='1' name='attr_Multiplier' checked='true' />
     Roll
     <select name="attr_pokemon_skill_1_rolltype">
       <option value="1d4">D4</option>
@@ -99,7 +100,7 @@
 	  <option value="2d8">2D8</option>
 	  <option value="1d20">D20</option>
     </select>
-    <button type='roll' value='/roll @{pokemon_skill_1_rolltype} + @{pokemon_atk} + @{pokemon_skill_1_basedmg}' name='roll_Skill1'></button>
+    <button type='roll' value='/roll @{pokemon_skill_1_rolltype} + @{pokemon_atk} + @{pokemon_pokemon_satk} + ceil(@{pokemon_skill_1_basedmg}/10)' name='roll_Skill1'></button>
 </p>
 
 <p>
