@@ -1,17 +1,4 @@
 <!-- TODO: use columns and layouts -->
-<p>Pokemon Name & Types
-    <input type="text" name="attr_pokemon_name" value="Insert Name Here">
-    <input type="text" name="attr_pokemon_type" value="Insert Pokemon Type">
-	<input type="text" name="attr_pokemon_second_type" value="Insert Second Pokemon Type">
-</p>
-<p>Pokemon Level 
-    <input type="number" name="attr_pokemon_level" value="0"> 
-</p>
-<!-- roll20 doesn't seem to support specific functions to do stuff with value through a button. Suggest 1st version to just have player manage own exp and level -->
-<p>Pokemon Exp
-    <input type="number" name="attr_pokemon_exp" value="0">
-</p>
-
 <h2>Skills</h2>
 
 <!-- TODO: Use roll templates -->
@@ -25,7 +12,7 @@
     <input type="number" name="attr_pokemon_skill_1_maxpp" value="0">
     Base
     <input type="number" name="attr_pokemon_skill_1_basedmg" value="0">
-	<input type='radio' value='0' name='attr_pokemon_skill_1_special' /><input type='radio' value='1' name='attr_Multiplier' checked='true' />
+	<input type='checkbox' name='attr_pokemon_skill_special_usage' value='1' checked='true' />
     Roll
     <select name="attr_pokemon_skill_1_rolltype">
       <option value="1d4">D4</option>
@@ -38,7 +25,7 @@
 	  <option value="2d8">2D8</option>
 	  <option value="1d20">D20</option>
     </select>
-    <button type='roll' value='/roll @{pokemon_skill_1_rolltype} + @{pokemon_atk} + @{pokemon_pokemon_satk} + ceil(@{pokemon_skill_1_basedmg}/10)' name='roll_Skill1'></button>
+    <button type='roll' value='/roll @{pokemon_skill_1_rolltype} + @{pokemon_atk} + @{pokemon_pokemon_satk}*@{pokemon_skill_special_usage} + ceil(@{pokemon_skill_1_basedmg}/10)' name='roll_Skill1'></button>
 </p>
 
 <p>
@@ -124,13 +111,21 @@
 <input type="text" name="attr_pokemon_inventory_7" value="Inventory">
 <input type="text" name="attr_pokemon_inventory_8" value="Inventory">
 <input type="text" name="attr_pokemon_inventory_9" value="Inventory">
-<input type="text" name="attr_pokemon_inventory_10" value="Inventory">
 
 <!-- TODO: Implement auto calculation for stats based on growth, consider using Sheet worker scripts https://wiki.roll20.net/Sheet_Worker_Scripts -->
 <!-- TODO: Change growth values to number based, to use in auto calculation? -->
 <!-- TODO: Allow additional input for player to put in random(from dice) points into attributes. Use button roll for that -->
 <!-- TODO: Add area for items, (do they affect stats?) -->
 <h2>Stats</h2>
+
+<p>Pokemon Level 
+    <input type="number" name="attr_pokemon_level" value="0"> 
+</p>
+<!-- roll20 doesn't seem to support specific functions to do stuff with value through a button. Suggest 1st version to just have player manage own exp and level -->
+<p>Pokemon Exp
+    <input type="number" name="attr_pokemon_exp" value="0">
+</p>
+
 <p>HP
     <input type="number" name="attr_pokemon_hp" value="0">
     <select name="attr_pokemon_hp_growth">
@@ -189,6 +184,12 @@
 </p>
 
 <h2>Other<h2>
+
+<p>Pokemon Name & Types
+    <input type="text" name="attr_pokemon_name" value="Insert Name Here">
+    <input type="text" name="attr_pokemon_type" value="Insert Pokemon Type">
+	<input type="text" name="attr_pokemon_second_type" value="Insert Second Pokemon Type">
+</p>
 
 <p>
 	Gender: <input type="text" name="attr_pokemon_gender" value="Insert Gender">
